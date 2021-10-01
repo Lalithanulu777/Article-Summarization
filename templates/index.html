@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="header-main">
+    <h2 class="logo">Text Summarizer</h2>
+    <ul class="menu">
+      <a href="#">Summarizer</a>
+    </ul>
+</div>
+
+
+<h1>Welcome to Text Summarization</h1>
+
+<div class="content">
+
+<div class="thisform">
+
+<form action='summary' method="POST">
+ {% csrf_token %}
+
+    <p>Enter text here: </p>
+    <textarea id="textfield" rows='20' cols='90' name='query'>{{newvar}}</textarea>
+
+    <div id="wrapper">
+
+    <input id="first" class="btn" type="submit">
+    <input id="third" type="button" onclick="newEvent()" value="clear">
+    <input id="second" class="btn" type="reset">
+
+    </div>
+
+</form>
+
+
+</div>
+
+<div class="select-type">
+<select name="methodsSummary">
+    <option selected disabled="true">Summarization Method</option>
+    <option >nltk</option>
+</select>
+</div>
+
+<div class='container'>
+
+<p>The newly shortened text is : </p>
+<textarea id="resultTextfield" rows='20' cols='90'>{{result}}</textarea>
+
+
+<div id="wrapper">
+<input id="third" type="button" onclick="newEventresult()" value="clear">
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- Footer Start -->
+
+    <footer class="footer-distributed">
+
+      <div class="footer-right">
+
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+
+      </div>
+
+      <div class="footer-left">
+
+        <p class="footer-links">
+          <a class="link-1" href="#">Home</a>
+
+          <a href="#">Blog</a>
+
+          <a href="#">Pricing</a>
+
+          <a href="#">About</a>
+
+          <a href="#">Faq</a>
+
+          <a href="#">Contact</a>
+        </p>
+
+        <p>Company Name &copy; 2015</p>
+      </div>
+
+    </footer>
+<!-- Footer End -->
+
+
+{% endblock body %}
